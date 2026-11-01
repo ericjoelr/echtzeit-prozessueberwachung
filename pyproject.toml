@@ -1,0 +1,35 @@
+[project]
+name = "echtzeit-prozessueberwachung"
+version = "0.1.0"
+description = "Echtzeit-Überwachung einer Draht-Härtelinie mit Kafka und Apache Flink (PyFlink)"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "confluent-kafka>=2.13.0",
+    "dash>=4.0.0",
+    "pandas>=3.0.0",
+    "plotly>=6.5.2",
+]
+
+[dependency-groups]
+dev = [
+    "duckdb>=1.4.4",
+    "ipykernel>=7.2.0",
+    "matplotlib>=3.10.8",
+    "pytest>=8.4.0",
+    "ruff>=0.14.0",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+ignore = ["E501"]  # lange Zeilen v. a. in SQL-Strings; Code bricht ruff format um
+
+[tool.ruff.lint.isort]
+known-first-party = ["profile_classification_logic"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src/transform"]
+addopts = "-p no:dash"  # Dashs pytest-Plugin wird nicht gebraucht und warnt nur

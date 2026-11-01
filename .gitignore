@@ -1,0 +1,17 @@
+# Lokale Daten (werden mit `make data` erzeugt)
+/data/
+
+# Arbeitsdokumente der Umstellung
+/docs/umstellung.md
+
+# Python
+.venv/
+__pycache__/
+.ruff_cache/
+.pytest_cache/
+
+# macOS
+.DS_Store
+
+# Arbeitsordner des Architekturdiagramms
+/.archify/
